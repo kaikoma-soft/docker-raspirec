@@ -3,6 +3,7 @@
 
 . ./setting.sh
 
+test -d Download || mkdir Download
 ( cd Download ; sh ../InstCmd/download.sh )
 
 docker build -t ${TARGET} \
