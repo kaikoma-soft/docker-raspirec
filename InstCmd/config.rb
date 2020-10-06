@@ -38,7 +38,7 @@ Total_tuner_limit = 4           # トータルチュナー数制限
 #
 #  EPG関係
 #
-GR_EPG_channel = %w( 13 14 15 16 17 18 26 27 28 31 )
+GR_EPG_channel = %w(  )                           # 地デジ受信局
 BS_EPG_channel = %w( BS15_0 )                     # BS EPG 受信局
 CS_EPG_channel = %w( CS4 CS2 )                    # CS EPG 受信局
 GR_EpgRsvTime  = 60                               # EPG受信時間 (秒)
@@ -76,9 +76,9 @@ StreamDir    = DataDir + "/stream"                # ストリーム出力先デ�
 #
 #   media player モニタ機能
 #
-MPMonitor       = false                              # mpv モニタ機能を有効に
-DeviceList_GR =  %w( /dev/pt1video2 /dev/pt1video3 ) 
-DeviceList_BSCS =  %w( /dev/pt1video0 /dev/pt1video1 ) 
+MPMonitor       = false         # mpv モニタ機能を有効に
+DeviceList_GR   =  %w( ) 
+DeviceList_BSCS =  %w( ) 
 MPlayer_cmd     = %w( mpv --deinterlace=yes --autofit=720x405 --quiet )
 
 RemoteMonitor =  false 
@@ -148,7 +148,7 @@ StderrT      = LogDir + "/timer_err.log" # timer debug 標準エラーファイ�
 
 EpgRsvTime = [ GR_EpgRsvTime, BS_EpgRsvTime, CS_EpgRsvTime ].max * 1.5
 
-Debug =  true 
+Debug =  false
 Debug_mem  = false              # メモリの消費量の表示
 
 
