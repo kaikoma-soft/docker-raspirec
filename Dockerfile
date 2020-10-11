@@ -1,4 +1,5 @@
 # our base image
+# raspbian の時は raspbian/stretch:latest に変更
 FROM ubuntu:20.10
 
 ARG DDIR_D

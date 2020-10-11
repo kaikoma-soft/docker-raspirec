@@ -4,6 +4,15 @@ set -x
 apt-get -y update 
 #apt-get -y upgrade
 
+if grep Raspbian /etc/os-release > /dev/null
+then
+    apt-get -y install locales-all
+    locale-gen ja_JP.UTF-8
+else
+    apt-get -y install language-pack-ja
+fi
+    
+
 apt-get -y install \
     autoconf \
     bash \
@@ -11,7 +20,6 @@ apt-get -y install \
     g++ \
     gcc \
     git \
-    language-pack-ja \
     libpcsclite-dev \
     lsof \
     pcscd \
@@ -23,6 +31,7 @@ apt-get -y install \
     ruby-sqlite3 \
     ruby-sys-filesystem \
     sqlite3 \
+    unzip \
     sudo \
     tzdata \
     wget 
