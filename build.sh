@@ -6,6 +6,13 @@
 test -d Download || mkdir Download
 ( cd Download ; sh ../InstCmd/download.sh )
 
+if grep Raspbian /etc/os-release > /dev/null
+then
+    echo "Raspbian"
+    sed -i.bak '/^FROM/s/ubuntu:.*/raspbian\/stretch:latest/' Dockerfile
+fi
+
+
 docker build -t ${TARGET} \
        --build-arg DDIR_D=$DDIR_D \
        --build-arg HLS=$HLS \
