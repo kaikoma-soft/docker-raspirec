@@ -1,4 +1,7 @@
 
+ver 1.2.0           2021/03/21
+  ・raspirec Ver1.0.0(tspacketchk) 対応
+
 ver 1.1.0           2020/10/10
   ・Raspbian 対応を追加
 

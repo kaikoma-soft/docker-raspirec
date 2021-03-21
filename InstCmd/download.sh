@@ -18,6 +18,8 @@ down() {
 
 
 down raspirec-master.zip  https://github.com/kaikoma-soft/raspirec/archive/master.zip
+down tspacketchk-main.zip https://github.com/kaikoma-soft/tspacketchk/archive/refs/heads/main.zip
+
 down epgdump-master.zip   https://github.com/Piro77/epgdump/archive/master.zip
 down libarib25-master.zip https://github.com/stz2012/libarib25/archive/master.zip
 down recpt1-master.zip    https://github.com/stz2012/recpt1/archive/master.zip

@@ -34,6 +34,7 @@ RUN set -x \
     && sh ${TMP_DIR}/recdvb.sh \
     && sh ${TMP_DIR}/epgdump.sh \
     && sh ${TMP_DIR}/raspirec.sh \
+    && sh ${TMP_DIR}/tspacketchk.sh \
     && sh ${TMP_DIR}/pkg_remove.sh 
 
 # tell the port number the container should expose
