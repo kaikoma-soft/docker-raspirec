@@ -87,6 +87,14 @@ XServerName     = "desktop"     # mpv を実行するマシン名
 RecHostName     = "raspi"       # raspirec,recpt1 を実行するマシン名
 Lsof_cmd        = "/usr/bin/lsof"
 
+#
+#   パケットチェック機能
+#
+PacketChk_enable     = true                         # true = 有効にする
+PacketChk_cmd        = "/usr/local/bin/tspacketchk" # 
+PacketChk_opt        = "-s 1 "                      # オプション
+PacketChk_threshold  = 2                            # エラーと判定する閾値
+PacketChk_rate       = 20                           # 想定速度 ( Mbyte/秒 )
 
 
 #
