@@ -28,7 +28,8 @@ down recpt1-master.zip    https://github.com/stz2012/recpt1/archive/master.zip
 #down recdvb-1.3.2.tgz     http://www13.plala.or.jp/sat/recdvb/recdvb-1.3.2.tgz
 
 # recpt1 互換
-down  recdvb-master.zip   https://github.com/dogeel/recdvb/archive/master.zip
+#down  recdvb-master.zip   https://github.com/dogeel/recdvb/archive/master.zip
+down  recdvb-master.zip   https://github.com/kaikoma-soft/recdvb/archive/refs/heads/master.zip
 
 if [ "$SC" = "yes" ]
 then
