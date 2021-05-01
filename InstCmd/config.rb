@@ -41,11 +41,11 @@ Total_tuner_limit = 4           # トータルチュナー数制限
 GR_EPG_channel = %w(  )                           # 地デジ受信局
 BS_EPG_channel = %w( BS15_0 )                     # BS EPG 受信局
 CS_EPG_channel = %w( CS4 CS2 )                    # CS EPG 受信局
-GR_EpgRsvTime  = 60                               # EPG受信時間 (秒)
-BS_EpgRsvTime  = 300                              # EPG受信時間 (秒)
-CS_EpgRsvTime  = 300                              # EPG受信時間 (秒)
-EPGperiod      = 8                                # EPG 取得周期 (H)
-#EpgBanTime     = [ 2, 3, 4, 5 ]                   # EPG禁止時間帯(24H制)
+GR_EpgRsvTime  = 30                               # EPG受信時間 (秒)
+BS_EpgRsvTime  = 120                              # EPG受信時間 (秒)
+CS_EpgRsvTime  = 120                              # EPG受信時間 (秒)
+EPGperiod      = 6                                # EPG 取得周期 (H)
+EpgBanTime     = [ 2, 3, 4, 5 ]                   # EPG禁止時間帯(24H制)
 
 #
 #   ダイアログのオプション初期値 ( true でチェック付き )
@@ -106,6 +106,7 @@ DiskKeepPercent =  false
 Local_jquery    = false    # jquery等をローカルに用意した場合に true
 StationPage     = 7        # 番組表で、1ページ当たりの放送局数 (個)
 TSnameFormat =  "%YEAR%-%MONTH%-%DAY%_%HOUR%:%MIN%_%DURATION%_%TITLE%_%CHNAME%" 
+EpgPatchEnable  = true     # EPGPatch機能の制御。デフォルトで有効。false = 無効 
 
 TitleRegex = [        # 題名の削除フィルター
     /【N】/,

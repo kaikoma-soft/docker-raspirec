@@ -29,6 +29,7 @@ then
     if [ -c /dev/dvb/adapter0/frontend0 ]
     then
         echo "found $dev -> dvb dev"
+        sleep 1
         SELTYPE="dvb"
     else
         for dev in \
@@ -39,6 +40,7 @@ then
             if [ -c $dev ]
             then
                 echo "found $dev -> char dev"
+                sleep 1
                 SELTYPE="char"
                 break
             fi

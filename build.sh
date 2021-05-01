@@ -27,6 +27,7 @@ then
     if [ "$SELTYPE" = "dvb" ]
     then
         sed -i.bak '/^Recpt1_cmd/s/recpt1/recdvb/' ${DDIR_H}/config.rb
+        sed -i.bak '/^EpgPatchEnable/s/true/false/' ${DDIR_H}/config.rb
     fi
 
     if [ "$HLS" = "yes" ]
