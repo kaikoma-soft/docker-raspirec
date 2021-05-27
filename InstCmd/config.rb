@@ -33,7 +33,8 @@ Gap_time      = 5               # 録画終了-次番組開始間隔(秒)
 #
 GR_tuner_num      = 2           # 地デジチュナー数
 BSCS_tuner_num    = 2           # BSCSチュナー数
-Total_tuner_limit = 4           # トータルチュナー数制限
+GBC_tuner_num     = 0           # 地デジ/BS/CS チューナー数
+Total_tuner_limit = false       # トータルチュナー数制限
 
 #
 #  EPG関係
@@ -41,9 +42,9 @@ Total_tuner_limit = 4           # トータルチュナー数制限
 GR_EPG_channel = %w(  )                           # 地デジ受信局
 BS_EPG_channel = %w( BS15_0 )                     # BS EPG 受信局
 CS_EPG_channel = %w( CS4 CS2 )                    # CS EPG 受信局
-GR_EpgRsvTime  = 30                               # EPG受信時間 (秒)
-BS_EpgRsvTime  = 120                              # EPG受信時間 (秒)
-CS_EpgRsvTime  = 120                              # EPG受信時間 (秒)
+GR_EpgRsvTime  = 50                               # EPG受信時間 (秒)
+BS_EpgRsvTime  = 150                              # EPG受信時間 (秒)
+CS_EpgRsvTime  = 200                              # EPG受信時間 (秒)
 EPGperiod      = 6                                # EPG 取得周期 (H)
 EpgBanTime     = [ 2, 3, 4, 5 ]                   # EPG禁止時間帯(24H制)
 
@@ -77,8 +78,10 @@ StreamDir    = DataDir + "/stream"                # ストリーム出力先デ�
 #   media player モニタ機能
 #
 MPMonitor       = false         # mpv モニタ機能を有効に
-DeviceList_GR   =  %w( ) 
-DeviceList_BSCS =  %w( ) 
+DevAutoDetection = true         # デバイスファイルの自動検出 true = 有効 
+DeviceList_GR   = []            # 地デジ チューナー デバイスファイル 
+DeviceList_BSCS = []            # BS/CS                  〃
+DeviceList_GBC  = []            # 三波共用(地デジ/BS/CS) 〃
 MPlayer_cmd     = %w( mpv --deinterlace=yes --autofit=720x405 --quiet )
 
 RemoteMonitor =  false 
@@ -139,13 +142,13 @@ DbFname      = DBDir + "/epg.db"
 EPGLockFN    = DBDir + "/epg.lock"
 MainLockFN   = DBDir + "/main.lock"
 DbupdateFN   = DBDir + "/db.update"
+DeviceChkFN  = DBDir + "/devicechk.yaml"
 
 LogDir       = DataDir + '/log'
 JsonDir      = DataDir + '/json'
 PidFile      = LogDir + '/raspirec.pid'
 TimerPidFile = LogDir + '/timer.pid'
 HttpdPidFile = LogDir + '/httpd.pid'
-ConfDir      = BaseDir + '/Conf.d'
 
 LogFname     = LogDir + '/raspirec.log'
 StdoutM      = LogDir + "/main_out.log"  # main debug 標準出力ファイル
@@ -155,7 +158,6 @@ StderrH      = LogDir + "/httpd_err.log" # httpd debug 標準エラーファイ�
 StdoutT      = LogDir + "/timer_out.log" # timer debug 標準出力ファイル
 StderrT      = LogDir + "/timer_err.log" # timer debug 標準エラーファイル
 
-EpgRsvTime = [ GR_EpgRsvTime, BS_EpgRsvTime, CS_EpgRsvTime ].max * 1.5
 
 Debug =  false
 Debug_mem  = false              # メモリの消費量の表示
