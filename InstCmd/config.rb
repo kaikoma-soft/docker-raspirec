@@ -24,9 +24,9 @@ DBDir   = DataDir + "/db"
 #
 # 録画タイミング関係
 #
-Start_margin  = 10              # 録画開始前マージン(秒)
-After_margin  = 3               # 録画終了後マージン(秒)
-Gap_time      = 5               # 録画終了-次番組開始間隔(秒)
+Start_margin  = 15              # 録画開始前マージン(秒)
+After_margin  = 5               # 録画終了後マージン(秒)
+Gap_time      = 4               # 録画終了-次番組開始間隔(秒)
 
 #
 #  チューナー関係
@@ -98,6 +98,13 @@ PacketChk_cmd        = "/usr/local/bin/tspacketchk" #
 PacketChk_opt        = "-s 1 "                      # オプション
 PacketChk_threshold  = 2                            # エラーと判定する閾値
 PacketChk_rate       = 20                           # 想定速度 ( Mbyte/秒 )
+
+#
+#   自動録画延長 (ver1.3.0 以降)
+#
+AutoRecExt        = false              # 自動録画延長機能  true = 有効
+ARE_sampling_time = 90                 # 番組終了の n 秒前に EPG 採取
+ARE_epgdump_opt   = %W( --tail 50M )   # 最後尾切り出しの epgdump のオプション
 
 
 #
