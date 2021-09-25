@@ -1,4 +1,8 @@
 
+ver 1.2.2           2021/09/25
+  ・raspirec Ver1.3.0対応
+  ・recpt1,epgdump のダウンロード先を変更
+
 ver 1.2.1           2021/05/01
   ・raspirec Ver1.0.4(EpgPatchEnable)対応
   ・recdvb のダウンロード先を変更
