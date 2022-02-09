@@ -1,6 +1,8 @@
-# our base image
+# 
+# docker-raspirec Ver1.2.3
+#
 # raspbian の時は raspbian/stretch:latest に変更
-FROM ubuntu:20.10
+FROM ubuntu:21.10
 
 ARG DDIR_D
 ARG HLS
