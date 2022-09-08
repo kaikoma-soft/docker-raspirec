@@ -1,8 +1,12 @@
 # 
-# docker-raspirec Ver1.2.3
+# docker-raspirec Ver1.2.4
 #
-# raspbian の時は raspbian/stretch:latest に変更
-FROM ubuntu:21.10
+#  ・image は rolling
+#    ( https://hub.docker.com/_/ubuntu/?tab=description  )
+#
+#  ・raspbian の時は raspbian/stretch:latest に変更
+#  
+FROM ubuntu:rolling
 
 ARG DDIR_D
 ARG HLS
