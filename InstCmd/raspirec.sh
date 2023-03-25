@@ -14,6 +14,7 @@ then
     SRC="${SRC:=$TMP_DIR/$NAME.zip}"
     unzip  $SRC
     mv ${NAME}/* .
-    rmdir ${NAME}
+    rm -f ${NAME}/.gitignore
+    rmdir --ignore-fail-on-non-empty ${NAME}
 fi
 
