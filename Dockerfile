@@ -1,5 +1,5 @@
 # 
-# docker-raspirec Ver1.2.4
+# docker-raspirec Ver1.2.5
 #
 #  ・image は rolling
 #    ( https://hub.docker.com/_/ubuntu/?tab=description  )
