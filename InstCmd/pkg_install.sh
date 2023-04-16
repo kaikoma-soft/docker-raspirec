@@ -1,8 +1,15 @@
 #!/bin/sh
-set -x
+
+if [ "X$DEBUG" = "Xyes" ]
+then
+    set -x
+fi
 
 apt-get -y update 
-#apt-get -y upgrade
+if [ ! "$DEBUG" = "yes" ]
+then
+    apt-get -y upgrade
+fi
 
 if grep Raspbian /etc/os-release > /dev/null
 then
@@ -34,11 +41,13 @@ apt-get -y install \
     unzip \
     sudo \
     tzdata \
+    pkg-config \
+    libtool \
     wget 
 
 if [ "$HLS" = "yes" ]
 then
-    sleep 4
+    sleep 1
     apt-get -y install  ffmpeg
 fi
 

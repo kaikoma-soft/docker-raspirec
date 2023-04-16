@@ -1,5 +1,4 @@
 # 
-# docker-raspirec Ver1.3.0
 #
 #  ・image は rolling
 #    ( https://hub.docker.com/_/ubuntu/?tab=description  )
@@ -33,24 +32,24 @@ ENV RASPIRECDIR=${RASPIRECDIR} \
     USE_YAKISOBA=$USE_YAKISOBA \
     BCAS_DIR=$BCAS_DIR
 
+ENV APPROX=192.168.1.64 
+ENV SC=${SC} 
 
 # for tzdata
 ENV DEBIAN_FRONTEND=noninteractive
 
-#COPY InstCmd                  ${TMP_DIR}/
-#COPY Download                 ${TMP_DIR}/
-COPY 2docker.tar         ${TMP_DIR}/
-
 STOPSIGNAL SIGKILL
 
+COPY InstCmd/repoChg.sh           /tmp/
+COPY InstCmd/pkg_install.sh       /tmp/
+
 RUN set -x \
-    && tar -C ${TMP_DIR} -xvof ${TMP_DIR}/2docker.tar \
-    && sh ${TMP_DIR}/InstCmd/all.sh
+  && mkdir -p /tmp/raspirec \
+  && sh /tmp/repoChg.sh \
+  && sh /tmp/pkg_install.sh
 
 # tell the port number the container should expose
 EXPOSE 5000
 
-COPY InstCmd/start.sh           ${RASPIRECDIR}/
-
 # run the application
-CMD /bin/sh ${RASPIRECDIR}/start.sh
+CMD ["/bin/bash","-i"]

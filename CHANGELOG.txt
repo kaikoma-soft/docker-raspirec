@@ -1,4 +1,26 @@
 
+ver 1.3.0           2023/04/
+  ・使用する STD-B25ライブラリを
+     libarib25(https://github.com/stz2012/libarib25) と
+     libaribb25(https://github.com/tsukumijima/libaribb25) 
+    から選択出来るように。
+    設定は setting.sh 中の変数 ARIBLIB で行う。
+       export ARIBLIB="libarib25"
+          or
+       export ARIBLIB="libaribb25"
+
+  ・実験的に libyakisoba (https://github.com/tsunoda14/libyakisoba) を
+    リンク出来るように。
+    設定は setting.sh 中の USE_YAKISOBA で行う。yes=使う, no=使わない。
+    デフォルトは no
+
+    変数 BCAS_DIR の値が yakisoba の sysconfdir に設定される。
+    デフォルトは /usr/local/etc
+
+    run.sh 実行時にホスト側の環境変数 BCAS_KEYS_FILE に、ファイル名が
+    設定されていると、そのファイルをdocker側の $BCAS_DIR/bcas_keys に
+    コピーする。
+    
 ver 1.2.5           2023/03/25
   ・raspirec-master/.gitignore の為に build が失敗していたのを修正
 

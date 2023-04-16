@@ -1,0 +1,11 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libyakisoba
+Description: ECM/EMM decoder library for ISDB
+URL: https://github.com/tsunoda14/libyakisoba
+Version: 0.1
+Libs: -L${libdir} -lyakisoba
+Cflags: -I${includedir}
