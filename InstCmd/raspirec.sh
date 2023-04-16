@@ -11,7 +11,7 @@ NAME="raspirec-master"
 test -d $INSTDIR || mkdir -p $INSTDIR
 if cd $INSTDIR
 then
-    SRC="${SRC:=$TMP_DIR/$NAME.zip}"
+    SRC="${SRC:=$TMP_DIR/Download/$NAME.zip}"
     unzip  $SRC
     mv ${NAME}/* .
     rm -f ${NAME}/.gitignore

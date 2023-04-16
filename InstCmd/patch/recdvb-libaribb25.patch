@@ -1,0 +1,71 @@
+diff -uprN recdvb-org/configure.ac recdvb/configure.ac
+--- recdvb-org/configure.ac	2022-03-09 21:26:59.000000000 +0900
++++ recdvb/configure.ac	2023-04-10 14:22:30.457426512 +0900
+@@ -12,7 +12,7 @@ AC_PROG_CC
+ # Checks for b25 support.
+ AC_ARG_ENABLE(b25,
+   [AS_HELP_STRING([--enable-b25],[enable b25 support])],
+-  [AC_CHECK_LIB([arib25], [create_arib_std_b25], , [AC_MSG_WARN(libarb25 is not available.)])]
++  [AC_CHECK_LIB([aribb25], [create_arib_std_b25], , [AC_MSG_WARN(libarbb25 is not available.)])]
+ )
+ 
+ # Checks for libraries.
+diff -uprN recdvb-org/decoder.c recdvb/decoder.c
+--- recdvb-org/decoder.c	2022-03-09 21:26:59.000000000 +0900
++++ recdvb/decoder.c	2023-04-10 17:08:04.891097480 +0900
+@@ -3,7 +3,7 @@
+ 
+ #include "decoder.h"
+ 
+-#ifdef HAVE_LIBARIB25
++#ifdef HAVE_LIBARIBB25
+ 
+ decoder *
+ b25_startup(decoder_options *opt)
+diff -uprN recdvb-org/decoder.h recdvb/decoder.h
+--- recdvb-org/decoder.h	2022-03-09 21:26:59.000000000 +0900
++++ recdvb/decoder.h	2023-04-10 20:32:30.990763037 +0900
+@@ -5,10 +5,10 @@
+ #include <stdint.h>
+ #include "config.h"
+ 
+-#ifdef HAVE_LIBARIB25
++#ifdef HAVE_LIBARIBB25
+ 
+-#include <arib25/arib_std_b25.h>
+-#include <arib25/b_cas_card.h>
++#include <aribb25/arib_std_b25.h>
++#include <aribb25/b_cas_card.h>
+ 
+ typedef struct decoder {
+     ARIB_STD_B25 *b25;
+diff -uprN recdvb-org/recpt1.c recdvb/recpt1.c
+--- recdvb-org/recpt1.c	2022-03-09 21:26:59.000000000 +0900
++++ recdvb/recpt1.c	2023-04-10 17:08:43.410508784 +0900
+@@ -522,7 +522,7 @@ void
+ show_usage(char *cmd)
+ {
+     fprintf(stderr, "%s Ver %s\n", cmd, version);
+-#ifdef HAVE_LIBARIB25
++#ifdef HAVE_LIBARIBB25
+     fprintf(stderr, "Usage: \n%s [--b25 [--round N] [--strip] [--EMM]] [--udp [--addr hostname --port portnumber]] [--http portnumber] [--dev devicenumber] [--lnb voltage] [--sid SID1,SID2] channel rectime destfile\n", cmd);
+ #else
+     fprintf(stderr, "Usage: \n%s [--udp [--addr hostname --port portnumber]] [--http portnumber] [--dev devicenumber] [--lnb voltage] [--sid SID1,SID2] channel rectime destfile\n", cmd);
+@@ -539,7 +539,7 @@ void
+ show_options(void)
+ {
+     fprintf(stderr, "Options:\n");
+-#ifdef HAVE_LIBARIB25
++#ifdef HAVE_LIBARIBB25
+     fprintf(stderr, "--b25:               Decrypt using BCAS card\n");
+     fprintf(stderr, "  --round N:         Specify round number\n");
+     fprintf(stderr, "  --strip:           Strip null stream\n");
+@@ -655,7 +655,7 @@ main(int argc, char **argv)
+     int result;
+     int option_index;
+     struct option long_options[] = {
+-#ifdef HAVE_LIBARIB25
++#ifdef HAVE_LIBARIBB25
+         { "b25",       0, NULL, 'b'},
+         { "B25",       0, NULL, 'b'},
+         { "round",     1, NULL, 'r'},

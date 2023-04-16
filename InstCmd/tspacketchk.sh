@@ -11,7 +11,7 @@ NAME="tspacketchk-main"
 mkdir -p $WORKDIR
 if cd $WORKDIR
 then
-    SRC="${SRC:=$TMP_DIR/$NAME.zip}"
+    SRC="${SRC:=$TMP_DIR/Download/$NAME.zip}"
     unzip $SRC
     cd $NAME
     make

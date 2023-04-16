@@ -5,30 +5,27 @@ then
     set -x
 fi
 
-if [ "$ARIBLIB" != "libarib25" ]
+if [ "$ARIBLIB" != "libaribb25" ]
 then
     exit
 fi
 
 echo
-echo "##### install libarib25 #####"
+echo "##### install libaribb25 #####"
 echo 
 
-WORKDIR="${TMP_DIR:=/tmp}/libarib25"
+WORKDIR="${TMP_DIR:=/tmp}/libaribb25"
 
 mkdir -p $WORKDIR
 if cd $WORKDIR
 then
-    SRC="${SRC:=$TMP_DIR/Download/libarib25-master.zip}"
+    SRC="${SRC:=$TMP_DIR/Download/libaribb25-master.zip}"
     unzip -e $SRC
-    if cd libarib25-*
+    if cd libaribb25-master
     then
         if [ "$USE_YAKISOBA" = "yes" ]
         then
-            SRC="$TMP_DIR/InstCmd/patch/libarib25.patch"
-            echo
-            echo "yakisoba patch "
-            echo
+            SRC="$TMP_DIR/InstCmd/patch/libaribb25.patch"
             if patch -u -p1 < $SRC
             then
                 echo "patch 成功"
@@ -36,14 +33,14 @@ then
                 echo "patch 失敗"
             fi
         fi
-
-
-        cmake .
+        
+        cmake -B build
+        cd build
         make
         make install
         make clean
     else
-        exit -1
+        echo "error"
     fi
 fi
 

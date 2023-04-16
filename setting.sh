@@ -1,22 +1,47 @@
 #!/bin/sh
 
+VERSION="1.3.0"
+
+#
 # HOST側のデータディレクトリ
-DDIR_H="$HOME/docker-raspirec"
+#
+export DDIR_H="$HOME/docker-raspirec"
 
+#
 # Docker側のデータディレクトリ
-DDIR_D="/raspirec"
+#
+export DDIR_D="/raspirec"
 
+#
 # raspirec のポート番号
-PORT="45678"
+#
+export PORT="45678"
 
+#
 # HLSモニタ機能 yes=有効
-HLS="no"
+#
+export HLS="no"
+
+#
+# arib ライブラリに何を使うのか libarib25 or libaribb25 の選択
+#
+#   libarib25  = https://github.com/stz2012/libarib25
+#   libaribb25 = https://github.com/tsukumijima/libaribb25
+#
+#export ARIBLIB="libarib25"
+export ARIBLIB="libaribb25"
+
+#
+# libyakisoba を使うか yes=使う, no=使わない
+#
+export USE_YAKISOBA="no"
+export BCAS_DIR="/usr/local/etc" # keyファイルの格納Dir
 
 # docker REPOSITORY:TAG
-TARGET="raspirec:1.0"
+export TARGET="raspirec:1.0"
 
 # ユーザー名
-USERNAME=`id -u -n`
+export USERNAME=`id -u -n`
 
 # デバイスドライバーの種類を選択
 #SELTYPE="dvb"       # DVBデバイス        -> recdvb を使用
@@ -54,6 +79,9 @@ then
     exit
 fi
 
+export MOUNT="--mount type=bind,src=${DDIR_H},dst=${DDIR_D}"
+export MOUNT="$MOUNT -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro"
+export PORTMAP="-p $PORT:4567"
 
 export RASPIRECDIR="/usr/local/raspirec" 
 export RASPIREC="$RASPIRECDIR/raspirec.rb" 
