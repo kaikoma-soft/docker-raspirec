@@ -14,18 +14,18 @@ echo
 echo "##### install libaribb25 #####"
 echo 
 
-WORKDIR="${TMP_DIR:=/tmp}/libaribb25"
+WORKDIR="${TMP_DIR}/libaribb25"
 
 mkdir -p $WORKDIR
 if cd $WORKDIR
 then
-    SRC="${SRC:=$TMP_DIR/Download/libaribb25-master.zip}"
+    SRC="${SRC_DIR}/Download/libaribb25-master.zip"
     unzip -e $SRC
     if cd libaribb25-master
     then
         if [ "$USE_YAKISOBA" = "yes" ]
         then
-            SRC="$TMP_DIR/InstCmd/patch/libaribb25.patch"
+            SRC="$SRC_DIR/InstCmd/patch/libaribb25.patch"
             if patch -u -p1 < $SRC
             then
                 echo "patch 成功"

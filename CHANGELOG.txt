@@ -1,5 +1,10 @@
 
-ver 1.3.0           2023/04/
+ver 1.3.1           2023/04/04
+  ・Docker 環境でない、素の環境にもインストール出来るように。
+    詳細は https://kaikoma-soft.github.io/src/not_docker-raspirec.html
+    を参照
+    
+ver 1.3.0           2023/04/04
   ・使用する STD-B25ライブラリを
      libarib25(https://github.com/stz2012/libarib25) と
      libaribb25(https://github.com/tsukumijima/libaribb25) 

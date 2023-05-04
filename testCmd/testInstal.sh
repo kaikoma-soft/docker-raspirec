@@ -10,11 +10,15 @@ fi
 #
 
 #. ./setting.sh
+export USE_YAKISOBA="yes"
+export ARIBLIB="libaribb25"
+
 
 export TMP_DIR=/tmp/raspirec
-mkdir -p $TMP_DIR
+test -d $TMP_DIR || mkdir -p $TMP_DIR
+export SRC_DIR=$TMP_DIR
 
-tar -cf - Download InstCmd testCmd | tar -C $TMP_DIR -xvof -
+#tar -cf - Download InstCmd testCmd | tar -C $TMP_DIR -xvof -
 
 sh ${TMP_DIR}/InstCmd/all.sh
 

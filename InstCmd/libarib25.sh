@@ -14,18 +14,18 @@ echo
 echo "##### install libarib25 #####"
 echo 
 
-WORKDIR="${TMP_DIR:=/tmp}/libarib25"
+WORKDIR="${TMP_DIR}/libarib25"
 
 mkdir -p $WORKDIR
 if cd $WORKDIR
 then
-    SRC="${SRC:=$TMP_DIR/Download/libarib25-master.zip}"
+    SRC="${SRC_DIR}/Download/libarib25-master.zip"
     unzip -e $SRC
     if cd libarib25-*
     then
         if [ "$USE_YAKISOBA" = "yes" ]
         then
-            SRC="$TMP_DIR/InstCmd/patch/libarib25.patch"
+            SRC="$SRC_DIR/InstCmd/patch/libarib25.patch"
             echo
             echo "yakisoba patch "
             echo

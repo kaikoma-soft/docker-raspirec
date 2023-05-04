@@ -21,7 +21,7 @@ docker run $RUNOPT $OPT $MOUNT $USERDATA $PORTMAP --name ${NAME} $TARGET sleep 3
 sleep 1
 docker ps -a
 
-tar -cvf - Download InstCmd testCmd | docker exec -i ${NAME} tar Cxf /tmp/raspirec -
+tar -cvf - Download InstCmd testCmd setting.sh | docker exec -i ${NAME} tar Cxf /tmp/raspirec -
 
 CMD="/bin/bash"
 RUNOPT="-it"

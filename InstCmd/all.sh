@@ -1,7 +1,11 @@
 #!/bin/sh
 
+if [ "X$DEBUG" = "Xyes" ]
+then
+    sh ${SRC_DIR}/InstCmd/repoChg.sh
+fi
+
 for name in \
-    repoChg.sh      \
     pkg_install.sh  \
     libyakisoba.sh  \
     libarib25.sh    \
@@ -16,7 +20,7 @@ do
     echo
     echo "###################    $name    ######################"
     echo
-    sh ${TMP_DIR}/InstCmd/${name} || exit -1
+    sh ${SRC_DIR}/InstCmd/${name} || exit -1
 done
 
 
@@ -31,10 +35,10 @@ fi
 
 if [ "X$DEBUG" = "Xyes" ]
 then
-    if [ -f ${TMP_DIR}/testCmd/ldd_chk.rb ]
+    if [ -f ${SRC_DIR}/testCmd/ldd_chk.rb ]
     then
         echo "######  ldd chk  ######"
-        ruby ${TMP_DIR}/testCmd/ldd_chk.rb
+        ruby ${SRC_DIR}/testCmd/ldd_chk.rb
         echo
     fi
 fi

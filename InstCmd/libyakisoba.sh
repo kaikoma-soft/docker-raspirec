@@ -11,13 +11,13 @@ then
     echo "##### install libyakisoba #####"
     echo 
     
-    WORKDIR="${TMP_DIR:=/tmp}/libyakisoba"
+    WORKDIR="${TMP_DIR}/libyakisoba"
     
     mkdir -p $WORKDIR
     if test -d $WORKDIR
     then
         ( cd $WORKDIR
-          SRC="${SRC:=$TMP_DIR/Download/libyakisoba.zip}"
+          SRC="${SRC_DIR}/Download/libyakisoba.zip"
           unzip -e $SRC
           if cd libyakisoba-*
           then
@@ -31,12 +31,12 @@ then
         )
     fi
     
-    WORKDIR="${TMP_DIR:=/tmp}/libsobacas"
+    WORKDIR="${TMP_DIR}/libsobacas"
     mkdir -p $WORKDIR
     if test -d $WORKDIR
     then
         ( cd $WORKDIR
-          SRC="${SRC:=$TMP_DIR/Download/libsobacas.zip}"
+          SRC="${SRC_DIR}/Download/libsobacas.zip"
           unzip -e $SRC
           if cd libsobacas-*
           then
@@ -52,7 +52,7 @@ then
     fi
 
     PKGCONF_DIR="/usr/local/lib/pkgconfig"
-    install -m 644 -v -D -t $PKGCONF_DIR $TMP_DIR/InstCmd/patch/libyakisoba.pc $TMP_DIR/InstCmd/patch/libsobacas.pc 
+    install -m 644 -v -D -t $PKGCONF_DIR $SRC_DIR/InstCmd/patch/libyakisoba.pc $SRC_DIR/InstCmd/patch/libsobacas.pc 
     
     ldconfig
 fi

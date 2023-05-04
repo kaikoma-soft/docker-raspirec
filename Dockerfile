@@ -1,5 +1,5 @@
 # 
-# docker-raspirec Ver1.3.0
+# docker-raspirec Ver1.3.1
 #
 #  ・image は rolling
 #    ( https://hub.docker.com/_/ubuntu/?tab=description  )
@@ -8,6 +8,8 @@
 #  
 FROM ubuntu:rolling
 
+ARG SRC_DIR
+ARG TMP_DIR
 ARG DDIR_D
 ARG HLS
 ARG MPV
@@ -23,7 +25,8 @@ ARG BCAS_DIR
 ENV RASPIRECDIR=${RASPIRECDIR} \
     HLS=${HLS} \
     DDIR_D=${DDIR_D} \
-    TMP_DIR=/tmp/raspirec \
+    SRC_DIR=${SRC_DIR} \
+    TMP_DIR=${TMP_DIR} \
     RUBYOPT=-EUTF-8 \
     LANG=ja_JP.UTF-8 \
     TZ="Asia/Tokyo" \
@@ -37,15 +40,15 @@ ENV RASPIRECDIR=${RASPIRECDIR} \
 # for tzdata
 ENV DEBIAN_FRONTEND=noninteractive
 
-#COPY InstCmd                  ${TMP_DIR}/
-#COPY Download                 ${TMP_DIR}/
-COPY 2docker.tar         ${TMP_DIR}/
+#COPY InstCmd                  ${SRC_DIR}/
+#COPY Download                 ${SRC_DIR}/
+COPY 2docker.tar               ${SRC_DIR}/
 
 STOPSIGNAL SIGKILL
 
 RUN set -x \
-    && tar -C ${TMP_DIR} -xvof ${TMP_DIR}/2docker.tar \
-    && sh ${TMP_DIR}/InstCmd/all.sh
+    && tar -C ${SRC_DIR} -xvof ${SRC_DIR}/2docker.tar \
+    && sh ${SRC_DIR}/InstCmd/all.sh
 
 # tell the port number the container should expose
 EXPOSE 5000

@@ -11,6 +11,7 @@ target = {
   "/usr/local/bin/recdvb"      => :type2,
   "/usr/local/bin/recpt1"      => :type2,
   "/usr/local/bin/tspacketchk" => :type1,
+  "/usr/local/raspirec/raspirec.rb" => :type1,
 }
 
 
@@ -95,6 +96,6 @@ target.each_pair do |path,type|
     r = ldd_chk( path, lib_list )
   end
   r2 = r == nil ? "OK" : "NG" 
-  printf("%-30s  %s %s\n",path, r2, r == nil ? "" : r )
+  printf("%-32s  %s %s\n",path, r2, r == nil ? "" : r )
 end
 
