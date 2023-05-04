@@ -1,4 +1,9 @@
 #!/bin/sh
+
+if [ "X$DOCKER" != "Xyes" ]
+then
+    exit
+fi
 set -x
 
 apt-get -y remove \

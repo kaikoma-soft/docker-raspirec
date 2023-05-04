@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-#  paspirec のj起動
+#  raspirec の起動
 #
 TMP="/tmp/tmp.$$"
 
@@ -14,5 +14,6 @@ fi
 
 sudo -u $USERNAME env RASPIREC_CONF=${DDIR_D}/config.rb ruby $RASPIRECDIR/raspirec.rb -f $*
 
+rm -f $TMP
 
 

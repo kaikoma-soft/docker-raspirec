@@ -5,13 +5,13 @@ echo
 echo "#####  install tspacketchk #####"
 echo 
 
-WORKDIR="${TMP_DIR:=/tmp}/tspacketchk"
+WORKDIR="${TMP_DIR}/tspacketchk"
 NAME="tspacketchk-main"
 
 mkdir -p $WORKDIR
 if cd $WORKDIR
 then
-    SRC="${SRC:=$TMP_DIR/Download/$NAME.zip}"
+    SRC="${SRC_DIR}/Download/$NAME.zip"
     unzip $SRC
     cd $NAME
     make

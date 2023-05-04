@@ -3,6 +3,11 @@
 #  リポジトリを日本サーバーに変更
 #
 
+if [ "X$DEBUG" != "Xyes" ]
+then
+    exit
+fi
+
 if grep Ubuntu /etc/os-release > /dev/null
 then
     sed -i.bak -e "s%http://[^ ]\+%http://jp.archive.ubuntu.com/ubuntu/%g" /etc/apt/sources.list 

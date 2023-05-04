@@ -5,12 +5,12 @@ echo
 echo "##### install recpt1 #####"
 echo 
 
-WORKDIR="${TMP_DIR:=/tmp}/recpt1"
+WORKDIR="${TMP_DIR}/recpt1"
 
 mkdir -p $WORKDIR
 if cd $WORKDIR
 then
-    SRC="${SRC:=$TMP_DIR/Download/recpt1-master.zip}"
+    SRC="${SRC_DIR}/Download/recpt1-master.zip"
     unzip -e $SRC
     cd recpt1-master
 
@@ -19,7 +19,7 @@ then
         echo
         echo "patch for libaribb25"
         echo
-        SRC="$TMP_DIR/InstCmd/patch/recpt1-libaribb25.patch"
+        SRC="$SRC_DIR/InstCmd/patch/recpt1-libaribb25.patch"
         if patch -u -p1 < $SRC
         then
             echo "patch 成功"

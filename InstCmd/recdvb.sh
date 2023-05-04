@@ -5,18 +5,16 @@ echo
 echo "##### install recdvb #####"
 echo 
 
-WORKDIR="${TMP_DIR:=/tmp}/recdvb"
+WORKDIR="${TMP_DIR}/recdvb"
 
 mkdir -p $WORKDIR
 if cd $WORKDIR
 then
-    #SRC="$TMP_DIR/recdvb-1.3.2.tgz"
-    #tar xvzf $SRC
-    SRC="${SRC:=$TMP_DIR/Download/recdvb-master.zip}"
+    SRC="${SRC_DIR}/Download/recdvb-master.zip"
     unzip -e $SRC
     if cd recdvb-master   #recdvb-1.3.2
     then
-        SRC="$TMP_DIR/InstCmd/patch/recdvb-libaribb25.patch"
+        SRC="$SRC_DIR/InstCmd/patch/recdvb-libaribb25.patch"
         if [ "$ARIBLIB" = "libaribb25" ]
         then
             echo
