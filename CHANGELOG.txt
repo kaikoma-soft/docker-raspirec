@@ -1,4 +1,7 @@
 
+ver 1.3.2           2024/07/01
+  ・libaribb25 の変更に伴い patch の変更
+
 ver 1.3.1           2023/04/04
   ・Docker 環境でない、素の環境にもインストール出来るように。
     詳細は https://kaikoma-soft.github.io/src/not_docker-raspirec.html

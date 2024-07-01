@@ -7,6 +7,8 @@
 #  ・raspbian の時は raspbian/stretch:latest に変更
 #  
 FROM ubuntu:rolling
+#FROM ubuntu:lunar
+#FROM ubuntu:jammy
 
 ARG SRC_DIR
 ARG TMP_DIR

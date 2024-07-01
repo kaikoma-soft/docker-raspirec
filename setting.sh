@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="1.3.1"
+VERSION="1.3.2"
 
 export DOCKER="yes"             # docker にインストールするか yes/no
 export TMP_DIR="/tmp/raspirec"  # 作業dir
@@ -27,7 +27,7 @@ export DOCKER TMP_DIR DDIR_H DDIR_D SRC_DIR
 ARIBLIB="libarib25"
 #ARIBLIB="libaribb25"
 
-USE_YAKISOBA="no"                 # libyakisoba を使うか yes=使う
+USE_YAKISOBA="no"                  # libyakisoba を使うか yes=使う
 BCAS_DIR="/usr/local/etc"          # keyファイルの格納Dir
 
 RASPIRECDIR="/usr/local/raspirec"  # raspirec のインストールディレクトリ

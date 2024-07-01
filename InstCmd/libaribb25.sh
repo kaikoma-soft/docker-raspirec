@@ -30,7 +30,9 @@ then
             then
                 echo "patch 成功"
             else
-                echo "patch 失敗"
+                echo
+                echo "+++++++++++++  patch 失敗  ++++++++++++++++"
+                echo
             fi
         fi
         
