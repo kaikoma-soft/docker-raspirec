@@ -17,6 +17,11 @@ then
     # rm -f ${NAME}/.gitignore
     # rmdir --ignore-fail-on-non-empty ${NAME}
 
-    git clone --depth=1 https://github.com/kaikoma-soft/raspirec.git .
+    if [ -d .git ]
+    then
+        git pull
+    else
+        git clone --depth=1 https://github.com/kaikoma-soft/raspirec.git .
+    fi
 fi
 

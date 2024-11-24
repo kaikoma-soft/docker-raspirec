@@ -17,6 +17,12 @@ down() {
     fi
 }
 
+if [ "X$DEBUG" = "Xyes" ]
+then
+    find  . -mtime +10 -type f -print -name \*.zip -exec rm {} \;
+fi
+
+
 # raspirec
 down raspirec-master.zip  https://github.com/kaikoma-soft/raspirec/archive/master.zip
 
@@ -64,3 +70,4 @@ then
     # tsunoda14/libsobacas
     down libsobacas.zip https://github.com/tsunoda14/libsobacas/archive/refs/heads/master.zip
 fi
+

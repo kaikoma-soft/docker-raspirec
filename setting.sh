@@ -57,8 +57,9 @@ then
     else
         for dev in \
             /dev/pt1video0  \
-                /dev/pt3video0  \
-                /dev/px4video0 
+            /dev/pt3video0  \
+            /dev/px4video0  \
+            /dev/isdb6014video0 
         do
             if [ -c $dev ]
             then

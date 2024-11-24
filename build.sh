@@ -8,17 +8,18 @@ test -d Download || mkdir Download
 
 if [ "X$DEBUG" = "Xyes" ]
 then
-    if [ -x /usr/bin/ruby ]
+    if [ -f testCmd/md5_chk.rb ]
     then
         if ruby testCmd/md5_chk.rb
         then
             echo "チェックサムは異常なし。"
         else
-            echo "チェックサムに不整合がありました。。"
+            echo "Error: チェックサムに不整合がありました。。"
             exit
         fi
     fi
 fi
+
 
 if [ "$DOCKER" = "yes" ]
 then
